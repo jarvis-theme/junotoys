@@ -24,7 +24,7 @@
                                         <span class="vc_empty_space_inner"></span>
                                     </div>
                                     <div id="sc_googlemap_144" class="sc_googlemap" data-zoom="10" data-style="default">
-                                        <div id="sc_googlemap_144_1" class="sc_googlemap_marker" data-title="" data-description="{{ $kontak->alamat }}" data-address="{{ $kontak->alamat }}" data-latlng="" data-point="{{ url(dirTemaToko().'junotoys/assets/images/map_marker-e1469089279832.png') }}"></div>
+                                        <div id="sc_googlemap_144_1" class="sc_googlemap_marker" data-title="" data-description="{{ $kontak->alamat }}" data-address="{{ $kontak->alamat }}" data-latlng="{{ $kontak->lat.','.$kontak->lng }}" data-point="{{ url(dirTemaToko().'junotoys/assets/images/map_marker-e1469089279832.png') }}"></div>
                                     </div>
                                     <div class="vc_empty_space em_height_6-5">
                                         <span class="vc_empty_space_inner"></span>
@@ -124,21 +124,22 @@
                                     </div>
                                     <h1 class="sc_title sc_title_regular sc_align_center text_uppercase">get in touch</h1>
                                     <div id="sc_form_777_wrap" class="sc_form_wrap">
-                                        <div id="sc_form_777" class="sc_form sc_form_style_form_1 aligncenter">
+                                        <div id="" class=" sc_form_style_form_1 aligncenter">
                                             <form id="" class="sc_input_hover_default" data-formtype="form_1" method="post" action="{{ url('kontak') }}">
                                                 <div class="sc_form_info">
                                                     <div class="columns_wrap">
                                                         <div class="sc_form_item sc_form_field label_over column-1_2">
-                                                            <input id="sc_form_username" type="text" name="name" value="{{ Input::old('name') }}" placeholder="Name *" aria-required="true">
+                                                            <input id="sc_form_username" type="text" name="namaKontak" value="{{ Input::old('name') }}" placeholder="Name *" aria-required="true">
                                                         </div>
                                                         <div class="sc_form_item sc_form_field label_over column-1_2">
-                                                            <input id="sc_form_email" type="text" name="email" value="{{ Input::old('email') }}" placeholder="E-mail *" aria-required="true">
+                                                            <input id="sc_form_email" type="text" name="emailKontak" value="{{ Input::old('email') }}" placeholder="E-mail *" aria-required="true">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="sc_form_item sc_form_message">
                                                     <textarea id="sc_form_message" placeholder="Message" aria-required="true"name="messageKontak" placeholder="Message">{{ Input::old('messageKontak') }}</textarea>
                                                 </div>
+                                                <br>
                                                 <button type="submit" class="sc_form_button sc_button sc_button_color_1 small sc_button_size_small">Send Message</button>
                                                 <div class="result sc_infobox"></div>
                                             </form>

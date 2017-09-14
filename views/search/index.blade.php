@@ -15,7 +15,7 @@
         <div class="content">
             <div class="list_products shop_mode_list">
                 <nav class="woocommerce-breadcrumb">
-                    <a href="index.html">Search</a>&nbsp;&#47;&nbsp; {{$name}}
+                    <a href="index.html">Search</a> /  {{$name}}
                 </nav>
                 <ul class="products">
 
@@ -26,7 +26,7 @@
                                 <div class="post_featured">
                                     <div class="post_thumb">
                                         <a class="hover_icon hover_icon_link" href="{{ product_url($produks) }}">
-                                            <img src="{{ product_image_url($produks->gambar1, 'thumb') }}" class="attachment-shop_catalog size-shop_catalog" alt="" title="product_3" />
+                                            <img src="{{ product_image_url($produks->gambar1, 'medium') }}" class="attachment-shop_catalog size-shop_catalog" alt="" title="product_3" />
                                         </a>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                                     </div>
                                     <span class="price">
                                         <span class="woocommerce-Price-amount amount">
-                                            <span class="woocommerce-Price-currencySymbol">&#36;</span>{{ price($produks->hargaJual) }}
+                                            <span class="woocommerce-Price-currencySymbol">$</span>{{ price($produks->hargaJual) }}
                                         </span>
                                     </span>
                                 <a href="{{ product_url($produks) }}" class="button product_type_simple add_to_cart_button ">View</a>
@@ -55,7 +55,7 @@
                         @foreach($hasilblog as $blog)
                         <li class="product has-post-thumbnail column-1_3 ">
                             <div class="post_item_wrap">
-                                @if(!empty(imgString($blog->isi)))
+                                @if(imgString($blog->isi))
                                 <div class="post_featured">
                                     <div class="post_thumb">
                                         <a class="hover_icon hover_icon_link" href="{{ blog_url($blog) }}">

@@ -34,86 +34,28 @@
                             <div class="sc_services sc_services_style_services-3 sc_services_type_images">
                                 <div class="sc_slider_swiper swiper-slider-container sc_slider_nopagination sc_slider_controls sc_slider_controls_side" data-interval="8286" data-slides-min-width="130" data-slides-per-view="5" data-slides-space="60">
                                     <div class="slides swiper-wrapper">
-                                        <div class="swiper-slide" data-style="width:100%;">
-                                            <div class="sc_services_item_wrap">
-                                                <div class="sc_services_item">
-                                                    <div class="sc_services_item_featured post_featured">
-                                                        <div class="post_thumb" data-image="images/1a.png" data-title="Stuffed Animals &#038; Plush Toys">
-                                                            <a class="hover_icon hover_icon_link" href="#">
-                                                                <img alt="" src="{{URL::to(dirTemaToko().'junotoys/assets/images/1a.png')}}">
-                                                            </a>
+                                    
+                                        @foreach(list_category() as $id=>$kategori)
+                                            @if($kategori->parent=='0')
+                                            <div class="swiper-slide" data-style="width:100%;">
+                                                <div class="sc_services_item_wrap">
+                                                    <div class="sc_services_item">
+                                                        <div class="sc_services_item_featured post_featured" {{{ $id=$id+1 }}}>
+                                                            <div class="post_thumb" data-image="{{URL::to(dirTemaToko().'junotoys/assets/images/'.$id.'a.png')}}" data-title="{{$kategori->nama}}">
+                                                                <a class="hover_icon hover_icon_link" href="{{category_url($kategori)}}">
+                                                                    <img alt="{{$kategori->nama}}" src="{{URL::to(dirTemaToko().'junotoys/assets/images/'.$id.'a.png')}}">
+                                                                </a>
+                                                            </div>
                                                         </div>
+                                                        <h4 class="sc_services_item_title">
+                                                            <a href="{{category_url($kategori)}}">{{$kategori->nama}}</a>
+                                                        </h4>
                                                     </div>
-                                                    <h4 class="sc_services_item_title">
-                                                        <a href="#">Stuffed Animals &#038; Plush Toys</a>
-                                                    </h4>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="swiper-slide" data-style="width:100%;">
-                                            <div class="sc_services_item_wrap">
-                                                <div class="sc_services_item">
-                                                    <div class="sc_services_item_featured post_featured">
-                                                        <div class="post_thumb" data-image="images/2a.png" data-title="Remote Control &#038; Play Vehicles">
-                                                            <a class="hover_icon hover_icon_link" href="#">
-                                                                <img alt="" src="{{URL::to(dirTemaToko().'junotoys/assets/images/2a.png')}}">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <h4 class="sc_services_item_title">
-                                                        <a href="#">Remote Control &#038; Play Vehicles</a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide" data-style="width:100%;">
-                                            <div class="sc_services_item_wrap">
-                                                <div class="sc_services_item">
-                                                    <div class="sc_services_item_featured post_featured">
-                                                        <div class="post_thumb" data-image="images/3a.png" data-title="Building Toys. Learning &#038; Education">
-                                                            <a class="hover_icon hover_icon_link" href="#">
-                                                                <img alt="" src="{{URL::to(dirTemaToko().'junotoys/assets/images/3a.png')}}">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <h4 class="sc_services_item_title">
-                                                        <a href="#">Building Toys. Learning &#038; Education</a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide" data-style="width:100%;">
-                                            <div class="sc_services_item_wrap">
-                                                <div class="sc_services_item">
-                                                    <div class="sc_services_item_featured post_featured">
-                                                        <div class="post_thumb" data-image="images/4.png" data-title="Dolls &#038; Dollhouse Accessories">
-                                                            <a class="hover_icon hover_icon_link" href="#">
-                                                                <img alt="" src="{{URL::to(dirTemaToko().'junotoys/assets/images/4.png')}}">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <h4 class="sc_services_item_title">
-                                                        <a href="#">Dolls &#038; Dollhouse Accessories</a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide" data-style="width:100%;">
-                                            <div class="sc_services_item_wrap">
-                                                <div class="sc_services_item">
-                                                    <div class="sc_services_item_featured post_featured">
-                                                        <div class="post_thumb" data-image="images/5.png" data-title="Video Games &#038; Electronics for Kids">
-                                                            <a class="hover_icon hover_icon_link" href="#">
-                                                                <img alt="" src="{{URL::to(dirTemaToko().'junotoys/assets/images/5.png')}}">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <h4 class="sc_services_item_title">
-                                                        <a href="#">Video Games &#038; Electronics for Kids</a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            @endif
+                                        @endforeach
+                                        
                                     </div>
                                     <div class="sc_slider_controls_wrap">
                                         <a class="sc_slider_prev" href="#"></a>
@@ -140,7 +82,7 @@
                             @if($key==1 || $key==0)
                             <div class="column-1_2 sc_column_item odd first">
                                 <div class="sc_promo style_2" data-href="#" style="background: url({{url(banner_image_url($main_banner->gambar))}});">
-                                    <div class="sc_promo_inner sc_promo_style_2" style="background: url({{url(banner_image_url($main_banner->gambar))}});">
+                                    <div class="sc_promo_inner sc_promo_style_2">
                                         <div class="sc_promo_content">
                                             <h3 class="sc_promo_subtitle">DEALS THIS WEEK</h3>
                                             <h2 class="sc_promo_title">SAVE 50%</h2>
@@ -282,7 +224,7 @@
                                                             <i class="eg-icon-basket"></i>
                                                             <span class="ess-cart-content">0 items -
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>0.00
+                                                                    <span class="woocommerce-Price-currencySymbol">$</span>0.00
                                                                 </span>
                                                             </span>
                                                         </a>
@@ -317,7 +259,7 @@
                                                             </div>
                                                             <div class="esg-content eg-post-257 eg-juno-skin-1-element-25">
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>{{price($new->hargaJual)}}
+                                                                    <span class="woocommerce-Price-currencySymbol">$</span>{{price($new->hargaJual)}}
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -431,7 +373,7 @@
                                                             </div>
                                                             <div class="esg-content eg-post-285 eg-juno-skin-1-element-25">
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>{{price($best->hargaJual)}}
+                                                                    <span class="woocommerce-Price-currencySymbol">$</span>{{price($best->hargaJual)}}
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -471,7 +413,7 @@
                                                             </div>
                                                             <div class="esg-content eg-post-269 eg-juno-skin-1-element-25">
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>{{price($best->hargaJual)}}
+                                                                    <span class="woocommerce-Price-currencySymbol">$</span>{{price($best->hargaJual)}}
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -705,8 +647,4 @@
         </div>
 
     </section>
-</article
-
-
-
-
+</article>

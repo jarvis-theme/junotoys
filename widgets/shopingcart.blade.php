@@ -13,15 +13,17 @@
             <div class="hide_cart_widget_if_empty">
                 <div class="widget_shopping_cart_content">
                     <ul class="cart_list product_list_widget ">
-                        <li class="empty">No products in the cart.</li>
-						
-						@foreach (Shpcart::cart()->contents() as $key => $cart)
-                        <li class="woocommerce-mini-cart-item mini_cart_item">												
-							<a href="#">
-								<img width="180" height="180" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" src="{{product_image_url($cart['image'],'thumb')}}" >{{$cart['name']}}&nbsp;</a>				
-							<span class="quantity">1 × <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{ price($cart['price'] )}}</span></span>					
-						</li>
-						@endforeach
+						@if(count(Shpcart::cart()->contents())>0)
+    						@foreach (Shpcart::cart()->contents() as $key => $cart)
+                            <li class="woocommerce-mini-cart-item mini_cart_item">												
+    							<a href="#">
+    								<img width="180" height="180" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" src="{{product_image_url($cart['image'],'thumb')}}" >{{$cart['name']}}&nbsp;</a>				
+    							<span class="quantity">1 × <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{ price($cart['price'] )}}</span></span>					
+    						</li>
+    						@endforeach
+                        @else
+                            <li class="empty">No products in the cart.</li>
+                        @endif
                     </ul>
 					
 					@if(count(Shpcart::cart()->contents())>0)

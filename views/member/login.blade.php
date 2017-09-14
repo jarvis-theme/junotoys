@@ -1,63 +1,47 @@
-<section id="pageContent">
-    <div class="container">
-        <div class="bingoAccountContainer">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                    <div class="formAccount formLogin">
-                        <div class="alert alert-success" id="ResetSuccess" style="display:none;">
-                            We've sent you an email with a link to update your password.
-                        </div>
-                        <div id="CustomerLoginForm" class="formAccountLogin">
-                            <h1 class="bingoAccountTitle">Login</h1>
-                            <form method="post" action="{{ url('member/login') }}" id="customer_login" accept-charset="UTF-8">
-                                <div class="formContent">
-                                    <div class="form-group">
-                                        <label for="CustomerEmail">Email</label>
-                                        <input type="email" name="email" id="CustomerEmail" class="form-control" placeholder="Email" value="{{ Input::old('email') }}" autocorrect="off" autocapitalize="off" autofocus required>
+<div class="page_content_wrap page_paddings_no contactus sidebar_hide">
+    <div class="content_wrap">
+        <div class="content">
+            <article class="post_item post_item_single post-15 page hentry">
+                <section class="post_content">
+                    <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1464101475265">
+                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+                                    <div class="vc_empty_space em_height_12">
+                                        <span class="vc_empty_space_inner"></span>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="CustomerPassword">Password</label>
-                                        <input type="password" name="password" id="CustomerPassword" class="form-control" placeholder="Password" required>
+                                    <h1 class="sc_title sc_title_regular sc_align_center text_uppercase">Login</h1>
+                                    <div id="sc_form_777_wrap" class="sc_form_wrap">
+                                        <div id="" class=" sc_form_style_form_1 aligncenter">
+                                            <form id="" class="sc_input_hover_default" data-formtype="" method="post" action="{{ url('member/login') }}">
+                                                <div class="sc_form_info">
+                                                    <div class="columns_wrap">
+                                                        <div class="sc_form_item sc_form_field label_over column-1_2">
+                                                            <input id="sc_form_username" type="text" name="email" value="{{ Input::old('email') }}" placeholder="Email *" aria-required="">
+                                                        </div>
+                                                        <br>
+                                                        <div class="sc_form_item sc_form_field label_over column-1_2">
+                                                            <input id="sc_form_email" type="password" name="password" value="{{ Input::old('email') }}" placeholder="Password *" aria-required="">
+                                                            <p class="forgetPassword"><a href="{{url('member/forget-password')}}" id="RecoverPassword">Forgot your password?</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="">Sign In</button>
+                                                <div class="result sc_infobox"></div>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <p class="forgetPassword"><a href="#recover" id="RecoverPassword">Forgot your password?</a></p>
-                                    <p><input type="submit" class="btn btnbingoOne" value="Sign In"></p>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="RecoverPasswordForm" class="formAccountRecover" style="display: none;">
-                            <h2 class="bingoAccountTitle">Reset your password</h2>
-                            <form method="post" action="{{ url('member/forgetpassword') }}" accept-charset="UTF-8">
-                                <div class="formContent">
-                                    <p>We will send you an email to reset your password.</p>
-                                    <div class="form-group">
-                                        <label for="RecoverEmail">Email</label>
-                                        <input type="email" value="{{ Input::old('recoveryEmail') }}" name="recoveryEmail" id="RecoverEmail" class="form-control" placeholder="Email" autocorrect="off" autocapitalize="off" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btnbingoOne" value="Submit">
-                                        <button type="button" id="HideRecoverPasswordLink" class="btn btnbingoCancel">Cancel</button>
+                                    <div class="vc_empty_space em_height_6-7">
+                                        <span class="vc_empty_space_inner"></span>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                    <div class="formAccount formLogin">
-                        <h3 class="bingoAccountTitle">Create Account</h3>
-                        <div class="formContent">
-                            <div class="registerDescription">
-                                <p>Registration is quick and easy. It allows you to be able to order from our shop. To start shopping click register.</p>
-                            </div>
-                            <div class="submit">
-                                <a class="btn btnbingoOne" href="{{ url('member/create') }}">
-                                    <span>Create an account</span>
-                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div class="vc_row-full-width"></div>
+                </section>
+            </article>
+            <section class="related_wrap related_wrap_empty"></section>
         </div>
     </div>
-</section>
+</div>

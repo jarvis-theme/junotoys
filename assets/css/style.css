@@ -8011,3 +8011,9 @@ body.mac-os .hover_icon_view:before {
 body.mac-os .search_style_fullscreen.search_state_opened .search_close {
     line-height: 1em;
 }
+
+.pagination ul li {
+    float: left;
+    padding: 20px;
+    list-style: none;
+}

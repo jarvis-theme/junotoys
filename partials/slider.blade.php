@@ -63,17 +63,16 @@
             <img alt="" data-hh="['68px','68px','68px','68px']" data-no-retina="" data-ww="['49px','49px','49px','49px']" height="68" src="{{URL::to(dirTemaToko().'junotoys/assets/images/44.png')}}" width="49">
           </div>
           <div class="tp-caption tp-resizeme" data-fontsize="['48','48','48','33']" data-height="none" data-hoffset="['588','588','588','26']" data-lineheight="['54','54','54','40']" data-responsive_offset="on" data-splitin="none" data-splitout="none" data-start="1500" data-transform_idle="o:1;" data-transform_in="x:50px;opacity:0;s:700;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;" data-voffset="['-69','-69','-69','-42']" data-whitespace="nowrap" data-width="none" data-x="['left','left','left','right']" data-y="['middle','middle','middle','middle']" id="slide-1-layer-13">
-            Pick the best toy
-            <br> for your kid
+            {{$slide->title}}
           </div>
           <div class="tp-caption tp-resizeme" data-height="none" data-hoffset="['588','588','588','737']" data-responsive_offset="on" data-splitin="none" data-splitout="none" data-start="2200" data-transform_idle="o:1;" data-transform_in="x:50px;opacity:0;s:700;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;" data-voffset="['10','10','10','50']" data-whitespace="nowrap" data-width="none" data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']" id="slide-1-layer-14">
-            Make play time a blast with our finest toys and games!
+            {{$slide->text}}
           </div>
           <div class="tp-caption tp-resizeme" data-height="none" data-hoffset="['588','588','588','221']" data-responsive_offset="on" data-start="2700" data-transform_idle="o:1;" data-transform_in="y:50px;opacity:0;s:700;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;" data-voffset="['100','100','100','45']" data-whitespace="nowrap" data-width="none" data-x="['left','left','left','right']" data-y="['middle','middle','middle','middle']" id="slide-1-layer-15">
             <img alt="" data-hh="['87px','87px','87px','61px']" data-no-retina="" data-ww="['180px','180px','180px','125px']" height="87" src="{{URL::to(dirTemaToko().'junotoys/assets/images/55.png')}}" width="180">
           </div>
           <div class="tp-caption tp-resizeme" data-actions='[{"event":"click","action":"simplelink","target":"_self","url":"#","delay":""}]' data-fontsize="['22','22','22','15']" data-height="none" data-hoffset="['622','622','622','246']" data-responsive_offset="on" data-splitin="none" data-splitout="none" data-start="2700" data-style_hover="c:rgba(18, 174, 224, 1.00);br:0px 0px 0px 0px;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Linear.easeNone;" data-transform_idle="o:1;" data-transform_in="y:50px;opacity:0;s:700;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;" data-voffset="['100','100','100','45']" data-whitespace="nowrap" data-width="none" data-x="['left','left','left','right']" data-y="['middle','middle','middle','middle']" id="slide-1-layer-16">
-            PURCHASE
+            <a href="{{filter_link_url($slide->url)}}">PURCHASE</a>
           </div>
         </li>
         @endif
@@ -82,4 +81,3 @@
     </div>
   </div>
 </section>
-

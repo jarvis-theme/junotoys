@@ -78,7 +78,7 @@
                                 <a href="#" rel="tag">{{@$produk->koleksi->nama}}</a>
                             </span>
                             <span class="tagged_as">Tags:
-                                {{ getTags('<a rel="tag">,</a>,',$produk->tags) }} 
+                                {{ getTagsProduk('<a rel="tag">,</a>,',$produk->tags) }} 
                             </span>
                             <span class="product_id">Barcode ID:
                                 <span>{{$produk->barcode}}</span>

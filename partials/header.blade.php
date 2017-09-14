@@ -10,7 +10,7 @@
                     <ul class="menu_user_nav" id="menu_user">
                         @if(is_login())
                         <li class="menu_user_register">
-                            <a href="{{ url('member') }}" class="popup_link popup_register_link icon-edit27 inited" href="#popup_registration">Profile</a>
+                            <a href="{{ url('member') }}" class="popup_link popup_register_link icon-edit27 inited" href="#popup_registration">{{user()->nama}}</a>
                         </li>
 
                         <li class="menu_user_login">
@@ -109,12 +109,12 @@
             </a>
         </div>
         <div class="menu_main_cart top_panel_icon">
-            <a href="#" class="top_panel_cart_button" data-items="0" data-summa="&#036;0.00">
+            <a href="#" class="top_panel_cart_button" data-items="0" data-summa="$0.00">
                 <span class="contact_icon icon-basket"></span>
                 <span class="contact_label contact_cart_label">Your cart:</span>
                 <span class="contact_cart_totals">
                     <span class="cart_items">0 Items</span> -
-                    <span class="cart_summa">&#36;0.00</span>
+                    <span class="cart_summa">$0.00</span>
                 </span>
             </a>
             <ul class="widget_area sidebar_cart sidebar">
@@ -190,83 +190,118 @@
 </div>
 
 <div class="popup_wrap popup_registration" id="popup_registration">
-            <a class="popup_close" href="#"></a>
-            <div class="form_wrap">
-                <form class="popup_form registration_form" id="registration_form" method="post" name="registration_form">
-                    <input name="redirect_to" type="hidden" value="">
-                    <div class="form_left">
-                        <div class="popup_form_field login_field iconed_field icon-user">
-                            <input id="registration_username" name="registration_username" placeholder="User name (login)" type="text" value="">
-                        </div>
-                        <div class="popup_form_field email_field iconed_field icon-mail">
-                            <input id="registration_email" name="registration_email" placeholder="E-mail" type="text" value="">
-                        </div>
-                        <div class="popup_form_field agree_field">
-                            <input id="registration_agree" name="registration_agree" type="checkbox" value="agree">
-                            <label for="registration_agree">I agree with</label>
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                        <div class="popup_form_field submit_field">
-                            <input class="submit_button" type="submit" value="Sign Up">
-                        </div>
-                    </div>
-                    <div class="form_right">
-                        <div class="popup_form_field password_field iconed_field icon-lock">
-                            <input id="registration_pwd" name="registration_pwd" placeholder="Password" type="password" value="">
-                        </div>
-                        <div class="popup_form_field password_field iconed_field icon-lock">
-                            <input id="registration_pwd2" name="registration_pwd2" placeholder="Confirm Password" type="password" value="">
-                        </div>
-                        <div class="popup_form_field description_field">
-                            Minimum 6 characters
-                        </div>
-                    </div>
-                </form>
-                <div class="result message_block"></div>
+    <a class="popup_close" href="#"></a>
+    <div class="form_wrap">
+        <form action="{{ url('member') }}" class="popup_form" id="" method="post" name="registration_form">
+            <input name="redirect_to" type="hidden" value="">
+            <div class="form_left">
+                <div class="popup_form_field login_field iconed_field icon-user">
+                    <input id="registration_username" name="nama" placeholder="User name" type="text" value="{{ Input::old('nama') }}">
+                </div>
+                <div class="popup_form_field email_field iconed_field icon-mail">
+                    <input id="registration_email" name="email" placeholder="E-mail" type="text" value="{{ Input::old('email') }}">
+                </div>
+                <div class="popup_form_field  iconed_field icon-phone">
+                    <input id="registration_phone" name="telp" placeholder="Phone" type="text" value="{{ Input::old('telp') }}">
+                </div>
+                <div class="popup_form_field  iconed_field icon-location hide">
+                    <input id="registration_postal" name="kodepos" placeholder="Postal Code" type="hidden" value="0">
+                </div>
+                <div class="popup_form_field  iconed_field icon-home hide">
+                    <input id="registration_address" name="alamat" placeholder="Address" type="hidden" value=" " >
+                </div>
+                <div class="popup_form_field agree_field">
+                    <input id="registration_agree" name="readme" type="checkbox" value="1" checked>
+                    <label for="registration_agree">I agree with</label>
+                    <a href="{{url('service')}}" target="_blank">Terms & Conditions</a>
+                </div>
+                <div class="popup_form_field">
+                    <input class="submit_button" type="submit" value="Sign Up">
+                </div>
             </div>
-        </div>
+            <div class="form_right">
+                <div class="popup_form_field password_field iconed_field icon-lock">
+                    <input id="registration_pwd" name="password" placeholder="Password" type="password" value="">
+                </div>
+                <div class="popup_form_field password_field iconed_field icon-lock">
+                    <input id="registration_pwd2" name="password_confirmation" placeholder="Confirm Password" type="password" value="">
+                </div>
+                <div class="popup_form_field description_field">
+                    Minimum 6 characters
+                </div>
+                <input name="negara" type="hidden" value="1">
+                <input name="provinsi" type="hidden" value="0">
+                <input name="kota" type="hidden" value="0">
+                
+            </div>
+        </form>
+        <div class="result message_block"></div>
+    </div>
+</div>
         
-        <div class="popup_wrap popup_login" id="popup_login">
-            <a class="popup_close" href="#"></a>
-            <div class="form_wrap">
-                <div class="form_left">
-                    <form action="#" class="popup_form login_form" id="login_form" method="post" name="login_form">
-                        <div class="popup_form_field login_field iconed_field icon-user">
-                            <input id="log" name="log" placeholder="Login or Email" type="text" value="">
-                        </div>
-                        <div class="popup_form_field password_field iconed_field icon-lock">
-                            <input id="password" name="pwd" placeholder="Password" type="password" value="">
-                        </div>
-                        <div class="popup_form_field remember_field">
-                            <a class="forgot_password" href="#">Forgot password?</a>
-                            <input id="rememberme" name="rememberme" type="checkbox" value="forever">
-                            <label for="rememberme">Remember me</label>
-                        </div>
-                        <div class="popup_form_field submit_field">
-                            <input class="submit_button" type="submit" value="Login">
-                        </div>
-                    </form>
+<div class="popup_wrap popup_login" id="popup_login">
+    <a class="popup_close" href="#"></a>
+    <div class="form_wrap">
+        <div class="">
+            <form action="{{url('member/login')}}" class="popup_form" id="" method="post" name="login_form">
+                <div class="popup_form_field login_field iconed_field icon-user">
+                    <input id="log" name="email" placeholder="Login or Email" type="text" value="">
                 </div>
-                <div class="form_right">
-                    <div class="login_socials_title">
-                        You can login using your social profile
-                    </div>
-                    <div class="loginSoc login_plugin">
-                        <div class="social-login-widget">
-                            <p>Connect with:</p>
-                            <div class="social-login-provider-list">
-                                <!-- <a href="#" rel="nofollow" title="Connect with Facebook">
-                                    <img alt="" src="images/facebook.png" title="Connect with Facebook">
-                                </a>
-                                <a href="#" rel="nofollow" title="Connect with Google">
-                                    <img alt="" src="images/google.png" title="Connect with Google">
-                                </a>
-                                <a href="#" rel="nofollow" title="Connect with Twitter">
-                                    <img alt="" src="images/twitter.png" title="Connect with Twitter">
-                                </a>-->
-                            </div> 
-                        </div>
-                    </div>
+                <div class="popup_form_field password_field iconed_field icon-lock">
+                    <input id="password" name="password" placeholder="Password" type="password" value="">
+                </div>
+                <div class="popup_form_field remember_field">
+                    <a class="forgot_password" href="{{url('member/forget-password')}}">Forgot password?</a>
+                    <input id="rememberme" name="rememberme" type="checkbox" value="forever">
+                    <label for="rememberme">Remember me</label>
+                </div>
+                <div class="popup_form_field">
+                    <input class="submit_button" type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+        <!-- <div class="form_right">
+            <div class="login_socials_title">
+                You can login using your social profile
+            </div>
+            <div class="loginSoc login_plugin">
+                <div class="social-login-widget">
+                    <p>Connect with:</p>
+                    <div class="social-login-provider-list">
+                         <a href="#" rel="nofollow" title="Connect with Facebook">
+                            <img alt="" src="images/facebook.png" title="Connect with Facebook">
+                        </a>
+                        <a href="#" rel="nofollow" title="Connect with Google">
+                            <img alt="" src="images/google.png" title="Connect with Google">
+                        </a>
+                        <a href="#" rel="nofollow" title="Connect with Twitter">
+                            <img alt="" src="images/twitter.png" title="Connect with Twitter">
+                        </a>
+                    </div> 
                 </div>
             </div>
-        </div>
+        </div>-->
+    </div>
+</div>
+
+<div class="popup_wrap popup_reset" id="popup_reset">
+    <a class="popup_close" href="#"></a>
+    <h3 class="widget-title">Password Recovery</h3>
+    <p>Enter Your Email and We Will Send the Instructions</p>
+    <hr />
+    <div class="">
+        <form action="{{ url('member/forgetpassword' )}}" class="popup_form" id="" method="post" name="login_form">
+            <div class="popup_form_field login_field iconed_field icon-user">
+                <input id="log" name="recoveryEmail" placeholder="Login or Email" type="text" value="">
+            </div>
+            <div class="popup_form_field remember_field">
+                <a class="forgot_password" href="#">Forgot password?</a>
+                <input id="rememberme" name="rememberme" type="checkbox" value="forever">
+                <label for="rememberme">Remember me</label>
+            </div>
+            <div class="popup_form_field">
+                <input class="submit_button" type="submit" value="Reset Password">
+            </div>
+        </form>
+    </div>
+</div>
